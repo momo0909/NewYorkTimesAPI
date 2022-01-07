@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Music WebApp</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+
+
+
+    <!-- Bootstrap core CSS -->
+<link href="../static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css ">
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+        th:tr{
+        color: blue;
+
+      }
+      tr:nth-of-type(2n){
+        border: 1px solid black;
+        background-color: rgba(150, 150, 150, 0.5);
+
+    }
+
+    td{
+        padding: 8px 8px;
+        border: 1px solid black;
+    }
+
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">WebApp Dev</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+        <a class="nav-link" href="{{ url_for('topArticles') }}">Top New Articles</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <main class="px-3">
+    <h1>Top Best Sellers</h1>
+  <br>
+
+    <table style="margin-left: 20px;">
+<!-- Table headers -->
+    <th>
+        <tr style="color: green; ">
+        <td>Name of Book</td>
+        <td>Author</td>
+</tr>
+    </th>
+
+<!-- For loop logic of jinja template -->
+{%for i in response %}
+
+<!-- table rows -->
+<tr>
+    <td>{{i[0]}}</td>
+    <td>{{i[1]}}</td>
+
+{%endfor%}
+
+</tr>
+
+</table>
+
+
+
+
+    <br>
+      <a href="{{ url_for('bestSellers') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Choose different book</a>
+      <a href="{{ url_for('index') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Return Home</a>
+    <br>
+</main>
+
+  <footer class="mt-auto text-white-50">
+    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, and COP4814 course, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+
+
+
+  </body>
+</html>
